@@ -145,7 +145,7 @@
 
 <h2>Motivation</h2>
 <p>
-  Fun fact about me: I love reviews. I have a near-religious obsession with online review aggregators &mdash;
+  Fun fact about me: I love reviews. I have a near-religious obsession with online review aggregators:
   Rotten Tomatoes, Pitchfork, Metacritic, Goodreads, you name it. I write a Google Review for every
   restaurant I visit. I&rsquo;m not entirely sure why I value strangers&rsquo; opinions so much, but
   that&rsquo;s a blog post for another day.
@@ -159,12 +159,12 @@
   identify these scores having any real, causal effect on revenue?
 </p>
 <p>
-  The &ldquo;Fresh&rdquo; vs. &ldquo;Rotten&rdquo; label creates a sharp cutoff at 60% &mdash; which
+  The &ldquo;Fresh&rdquo; vs. &ldquo;Rotten&rdquo; label creates a sharp cutoff at 60%, which
   screamed regression discontinuity to me. A quick Google search confirmed I wasn&rsquo;t the first
   to think of this: Nishijima, Rodrigues &amp; Souza
   (<a href="https://www.tandfonline.com/doi/full/10.1080/13504851.2021.1918324">2021</a>)
   ran an RDD on the Tomatometer using 1,239 films from 1999&ndash;2019 and found no effect.
-  Their paper was interesting, but I wanted to see if things looked different in the post-COVID era &mdash;
+  Their paper was interesting, but I wanted to see if things looked different in the post-COVID era,
   when theatrical appetite has arguably shrunk and audiences might be more selective about what&rsquo;s
   worth a trip to the theater. I also wanted to extend the analysis to the <b>Audience Score</b>,
   which their study didn&rsquo;t cover.
@@ -530,17 +530,17 @@ label were causing a jump in revenue, you&rsquo;d see a visible gap at zero. Spo
 <h2>What I Found</h2>
 <ul class="findings">
   <li><b>No discontinuity at the critic threshold.</b> The rdrobust estimate for opening gross is
-  0.060 log points (<i>p</i>&nbsp;=&nbsp;0.82) with controls &mdash; statistically and economically
+  0.060 log points (<i>p</i>&nbsp;=&nbsp;0.82) with controls, statistically and economically
   indistinguishable from zero. Total gross estimates are similarly null. Just like Nishijima et al.,
   the Tomatometer label doesn&rsquo;t seem to matter.</li>
   <li><b>No discontinuity at the audience threshold either.</b> The preferred estimate is &minus;0.064
   log points (<i>p</i>&nbsp;=&nbsp;0.84) for opening gross. A na&iuml;ve OLS linear spec looks
-  significant, but that vanishes once you add controls or allow for a quadratic &mdash; classic
+  significant, but that vanishes once you add controls or allow for a quadratic. Classic
   functional form misspecification rather than a real discontinuity.</li>
   <li><b>Bottom line:</b> even in the post-COVID era, crossing the 60% &ldquo;Fresh&rdquo; threshold
   on Rotten Tomatoes doesn&rsquo;t appear to cause a detectable bump in box office revenue. People
   might respond to the underlying score or individual reviews, but the binary label itself?
-  Not so much &mdash; or at least not enough to pick up in 621 films.</li>
+  Not so much, or at least not enough to pick up in 621 films.</li>
 </ul>
 
 <div class="notes">
