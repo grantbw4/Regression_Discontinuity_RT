@@ -335,9 +335,10 @@ HTML_TEMPLATE = """\
 <body>
 <div class="container">
 
-<h1>Does &ldquo;Fresh&rdquo; Sell Tickets?</h1>
+<h1>Does anyone else care if the movie&rsquo;s &ldquo;Fresh?&rdquo;</h1>
 <p class="subtitle">
-  A regression discontinuity side project &ensp;|&ensp; Sep 2021 &ndash; Feb 2026 &ensp;|&ensp; Wide releases (&ge;600 theaters) &ensp;|&ensp; <i>N</i>&nbsp;=&nbsp;621 films
+  A regression discontinuity side project investigating whether Rotten Tomatoes scores have a causal effect on box office revenue in the post-COVID era.
+  Data and code available on <a href="https://github.com/grantbw4/Regression_Discontinuity_RT" style="color: var(--accent);">GitHub</a>.
 </p>
 
 <h2>Motivation</h2>
@@ -382,6 +383,26 @@ HTML_TEMPLATE = """\
   polynomials (interacted with treatment) as robustness checks. Standard errors are
   heteroskedasticity-robust (HC1). Controls include log budget, log opening theaters,
   MPAA rating dummies, and release-year fixed effects.
+</p>
+
+<h2>Data</h2>
+<p>
+  I scraped three sources and merged them together:
+</p>
+<ul>
+  <li><b>Box Office Mojo</b> for the core film list and box office numbers: opening weekend gross,
+  theater counts, total domestic gross, MPAA rating, and release date. I pulled every wide release
+  (600+ theaters) from September 2021 through February 2026.</li>
+  <li><b>Rotten Tomatoes</b> for the running variables: Tomatometer (critic consensus) and Audience Score,
+  plus review/rating counts. I matched each film by constructing URL slugs from the title, falling back
+  to RT&rsquo;s search page when that didn&rsquo;t work.</li>
+  <li><b>The Numbers</b> for production budgets, which I fuzzy-matched to the BOM titles by normalized
+  name and release year.</li>
+</ul>
+<p>
+  After merging and filtering, the final dataset has <b>621 films</b>. Films still in theatrical release
+  at the end of the study window are flagged and excluded from the total domestic gross analysis
+  (since their grosses are incomplete).
 </p>
 
 <h2>Score Distributions</h2>
@@ -454,7 +475,6 @@ label were causing a jump in revenue, you&rsquo;d see a visible gap at zero. Spo
   Nishijima, M., Rodrigues, M. &amp; Souza, T.L.D. (2021).
   &ldquo;Is Rotten Tomatoes killing the movie industry? A regression discontinuity approach.&rdquo;
   <i>Applied Economics Letters</i>, 29(13), 1187&ndash;1192.</p>
-  <p style="margin-top: 1rem;"><a href="https://github.com/grantbw4/Regression_Discontinuity_RT" style="color: var(--accent);">View the code on GitHub</a></p>
 </div>
 
 </div>
