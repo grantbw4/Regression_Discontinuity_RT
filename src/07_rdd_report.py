@@ -174,7 +174,7 @@ def build_results_table(results_df, score, outcome):
           <td class="num">{bw}</td>
         </tr>\n"""
 
-    return f"""    <table>
+    return f"""    <div class="table-wrap"><table>
       <thead>
         <tr>
           <th>Method</th>
@@ -189,7 +189,7 @@ def build_results_table(results_df, score, outcome):
       </thead>
       <tbody>
 {rows_html}      </tbody>
-    </table>"""
+    </table></div>"""
 
 
 # ── HTML assembly ─────────────────────────────────────────────────────────────
@@ -325,10 +325,29 @@ HTML_TEMPLATE = """\
   .findings li {{
     margin-bottom: 0.5rem;
   }}
+  .table-wrap {{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0.75rem 0 1.5rem;
+  }}
+  .table-wrap table {{
+    margin: 0;
+  }}
   @media (max-width: 640px) {{
-    table {{ font-size: 0.75rem; }}
-    .num {{ font-size: 0.73rem; }}
-    .plot-row {{ flex-direction: column; }}
+    body {{ padding: 1rem 0.5rem; }}
+    h1 {{ font-size: 1.35rem; }}
+    h2 {{ font-size: 1.1rem; margin-top: 2rem; }}
+    h3 {{ font-size: 0.95rem; }}
+    p, li {{ font-size: 0.875rem; }}
+    .subtitle {{ font-size: 0.85rem; }}
+    table {{ font-size: 0.7rem; min-width: 580px; }}
+    thead th {{ padding: 0.35rem 0.4rem; font-size: 0.7rem; }}
+    tbody td {{ padding: 0.3rem 0.4rem; }}
+    .num {{ font-size: 0.68rem; }}
+    .ci {{ font-size: 0.65rem; }}
+    .plot-row {{ flex-direction: column; gap: 0.75rem; }}
+    .notes {{ font-size: 0.75rem; }}
+    .notes p {{ font-size: 0.75rem; }}
   }}
 </style>
 </head>
