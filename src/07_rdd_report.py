@@ -515,6 +515,11 @@ def main():
     output_path.write_text(html, encoding="utf-8")
     print(f"Report saved to {output_path}")
 
+    docs_path = config.PROJECT_ROOT / "docs" / "index.html"
+    docs_path.parent.mkdir(exist_ok=True)
+    docs_path.write_text(html, encoding="utf-8")
+    print(f"GitHub Pages copy saved to {docs_path}")
+
 
 if __name__ == "__main__":
     main()
